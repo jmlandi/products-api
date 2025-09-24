@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductVariation extends Model
 {
-    //
+    function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
+
+    function stocks()
+    {
+        return $this->hasOne(Stock::class, 'product_variation_id', 'id');
+    }
 }

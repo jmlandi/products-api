@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Stock extends Model
 {
     protected $table = 'stock';
+
+    function productVariation()
+    {
+        return $this->belongsTo(ProductVariation::class, 'product_variation_id', 'id');
+    }
 }
