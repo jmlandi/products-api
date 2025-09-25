@@ -15,4 +15,14 @@ class ProductVariation extends Model
     {
         return $this->hasOne(Stock::class, 'product_variation_id', 'id');
     }
+
+    function images()
+    {
+        return $this->belongsToMany(
+            Image::class,
+            'product_variation_images',
+            'product_variation_id',
+            'image_id'
+        );
+    }
 }

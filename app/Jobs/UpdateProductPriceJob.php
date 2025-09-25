@@ -5,7 +5,7 @@ namespace App\Jobs;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 
-class UpdateProductPrice implements ShouldQueue
+class UpdateProductPriceJob implements ShouldQueue
 {
     use Queueable;
 
