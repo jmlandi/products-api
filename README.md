@@ -74,10 +74,6 @@ docker run --name products-api-db \
 php artisan migrate
 ```
 
-<img src="docs/products_erd.svg" alt="Entity Relationship Diagram" width="100%">
-
-> 💡 **Diagrama de Entidade e Relacionamento (ERD)** - Este diagrama ilustra a estrutura completa do banco de dados da aplicação, mostrando as tabelas, campos e relacionamentos entre as entidades. Use-o como referência para compreender como os dados de produtos, variações, marcas, cores, tags e imagens estão organizados e conectados no sistema.
-
 4. **Configure a fila SQS:**
 
 Crie uma fila SQS na AWS Console e configure no `.env`:
