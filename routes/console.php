@@ -8,4 +8,4 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Schedule::command('php artisan queue:retry all')->everyFiveMinutes();
+Schedule::command('queue:retry all')->everyFiveMinutes()->withoutOverlapping()->onOneServer();
