@@ -7,7 +7,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use App\Models\Brand;
-use Illuminate\Support\Facades\Log;
 
 class CreateBrandJob implements ShouldQueue, ShouldBeUnique
 {

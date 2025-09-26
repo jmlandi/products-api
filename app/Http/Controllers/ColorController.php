@@ -14,7 +14,7 @@ class ColorController extends Controller
     {
         $data = new CreateColorJobDto(name: $request->input('name'));
         CreateColorJob::dispatch($data);
-        return response()->json(['message' => 'Brand creation job dispatched'], 202);
+        return response()->json(['message' => 'job enqeued'], 202);
     }
 
     public function updateName(Request $request) {
@@ -23,6 +23,6 @@ class ColorController extends Controller
             name: $request->input('name')
         );
         UpdateColorJob::dispatch($data);
-        return response()->json(['message' => 'Brand update job dispatched'], 202);
+        return response()->json(['message' => 'job enqeued'], 202);
     }
 }

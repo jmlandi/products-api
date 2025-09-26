@@ -13,6 +13,7 @@ class Product extends Model
 
     function tags()
     {
-        return $this->belongsToMany(Tag::class, 'product_tags', 'product_id', 'tag_id');
+        return $this->belongsToMany(Tag::class, 'product_tags', 'product_id', 'tag_id')
+            ->withTimestamps();
     }
 }

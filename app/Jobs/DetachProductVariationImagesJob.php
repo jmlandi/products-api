@@ -2,24 +2,25 @@
 
 namespace App\Jobs;
 
-use App\Dto\UpdateProductVariationSizeJobDto;
+use App\Dto\DetachProductVariationImagesJobDto;
+use App\Models\Image;
 use App\Models\ProductVariation;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 
-class UpdateProductVariationSizeJob implements ShouldQueue, ShouldBeUnique
+class DetachProductVariationImagesJob implements ShouldQueue, ShouldBeUnique
 {
     use Queueable;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(public UpdateProductVariationSizeJobDto $payload) { }
+    public function __construct(public DetachProductVariationImagesJobDto $payload) { }
 
     public function uniqueId()
     {
-        return $this->payload->size . $this->payload->id;
+        return $this->payload->image_id . $this->payload->id;
     }
 
     /**
@@ -28,10 +29,10 @@ class UpdateProductVariationSizeJob implements ShouldQueue, ShouldBeUnique
     public function handle(): void
     {
         $productVariation = ProductVariation::find($this->payload->id);
-        if ($productVariation)
+        $image = Image::find($this->payload->image_id);
+        if ($productVariation && $image)
         {
-            $productVariation->size = trim($this->payload->size);
-            $productVariation->save();
+            $productVariation->images()->detach($image->id);
         }
     }
 }

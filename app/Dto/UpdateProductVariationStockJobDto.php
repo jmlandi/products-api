@@ -2,10 +2,10 @@
 
 namespace App\Dto;
 
-readonly class UpdateImageAltTextJobDto
+readonly class UpdateProductVariationStockJobDto
 {
     public function __construct(
       public int $id,
-      public string $alt_text
+      public int $movimentation,
     ) {}
 }

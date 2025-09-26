@@ -19,7 +19,7 @@ class CreateImageJob implements ShouldQueue, ShouldBeUnique
 
     public function uniqueId()
     {
-        return $this->payload->imageUrl;
+        return $this->payload->image_url;
     }
 
     /**
@@ -28,12 +28,12 @@ class CreateImageJob implements ShouldQueue, ShouldBeUnique
     public function handle(): void
     {
         $data = new CreateImageJobDto(
-            imageUrl: $this->payload->imageUrl,
-            altText: $this->payload->altText
+            image_url: $this->payload->image_url,
+            alt_text: $this->payload->alt_text
         );
         $image = new Image();
-        $image->imageUrl = $data->imageUrl;
-        $image->altText = $data->altText;
+        $image->image_url = $data->image_url;
+        $image->alt_text = $data->alt_text;
         $image->save();
     }
 }

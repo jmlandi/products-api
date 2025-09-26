@@ -30,23 +30,12 @@ class CreateProductjob implements ShouldQueue, ShouldBeUnique
     public function handle(): void
     {
         $product = new Product();
-
-        $brand = Brand::firstOrCreate(['name' => trim($this->payload->brand)]);
-        $product->brand_id = $brand->id;
-        
-        foreach ($this->payload->tags ?? [] as $tagName)
-        {
-            $tag = Tag::firstOrCreate(['name' => trim($tagName)]);
-            $product->tags()->attach($tag->id);
-        }
-        
         $product->sku = trim($this->payload->sku);
         $product->name = trim($this->payload->name);
-        $product->description = trim($this->payload->description);
+        $product->brand_id = $this->payload->brand_id;
         $product->price = $this->payload->price;
+        $product->description = trim($this->payload->description) ?? "";
         $product->is_active = $this->payload->is_active ?? true;
-        
         $product->save();
-        
     }
 }
