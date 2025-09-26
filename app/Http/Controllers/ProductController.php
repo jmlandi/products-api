@@ -7,11 +7,13 @@ use App\Dto\UpdateProductAvailabilityJobDto;
 use App\Dto\UpdateProductBrandJobDto;
 use App\Dto\UpdateProductDescriptionJobDto;
 use App\Dto\UpdateProductNameJobDto;
+use App\Dto\UpdateProductPriceJobDto;
 use App\Jobs\CreateProductjob;
 use App\Jobs\UpdateProductAvailabilityJob;
 use App\Jobs\UpdateProductBrandJob;
 use App\Jobs\UpdateProductDescriptionJob;
 use App\Jobs\UpdateProductNameJob;
+use App\Jobs\UpdateProductPriceJob;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -67,6 +69,16 @@ class ProductController extends Controller
             name: $request->input('name'),
         );
         UpdateProductNameJob::dispatch($data);
+        return response()->json(["message" => "job enqeued"], 202);
+    }
+
+    public function updatePrice(Request $request)
+    {
+        $data = new UpdateProductPriceJobDto(
+            id: $request->id,
+            price: $request->price,
+        );
+        UpdateProductPriceJob::dispatch($data);
         return response()->json(["message" => "job enqeued"], 202);
     }
 }
