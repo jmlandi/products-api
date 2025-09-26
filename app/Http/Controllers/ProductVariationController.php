@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Dto\AttachProductVariationImagesJobDto;
 use App\Dto\CreateProductVariationJobDto;
+use App\Dto\DetachProductVariationImagesJobDto;
 use App\Dto\UpdateProductVariationAvailabilityJobDto;
 use App\Dto\UpdateProductVariationChildSkuJobDto;
 use App\Dto\UpdateProductVariationColorJobDto;
+use App\Jobs\AttachProductVariationImagesJob;
 use App\Jobs\CreateProductVariationJob;
+use App\Jobs\DetachProductVariationImagesJob;
 use App\Jobs\UpdateProductVariationAvailabilityJob;
 use App\Jobs\UpdateProductVariationChildSkuJob;
 use App\Jobs\UpdateProductVariationColorJob;
@@ -55,6 +59,26 @@ class ProductVariationController extends Controller
         );
         UpdateProductVariationColorJob::dispatch($data);
         return response()->json(["message" => "job enqeued"], 202);
-
     }
+
+    public function attachImage(Request $request)
+    {
+        $data = new AttachProductVariationImagesJobDto(
+            id: $request->id,
+            image_id: $request->image_id,
+        );
+        AttachProductVariationImagesJob::dispatch($data);
+        return response()->json(["message" => "job enqeued"], 202);
+    }
+
+    public function detachImage(Request $request)
+    {
+        $data = new DetachProductVariationImagesJobDto(
+            id: $request->id,
+            image_id: $request->image_id,
+        );
+        DetachProductVariationImagesJob::dispatch($data);
+        return response()->json(["message" => "job enqeued"], 202);
+    }
+
 }

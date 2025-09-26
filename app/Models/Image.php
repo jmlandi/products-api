@@ -13,6 +13,6 @@ class Image extends Model
             'product_variation_images',
             'image_id',
             'product_variation_id'
-        );
+        )->withTimestamps();
     }
 }
