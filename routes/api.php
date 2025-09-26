@@ -36,8 +36,8 @@ Route::controller(ProductController::class)->middleware('api.token')->group(func
     Route::patch('/products/update-name', 'updateName');
     Route::patch('/products/update-description', 'updateDescription');
     Route::patch('/products/update-price', 'updatePrice');
-    Route::patch('/products/attach-tag', 'attachTags');
-    Route::patch('/products/detach-tag', 'detachTags');
+    Route::patch('/products/attach-tag', 'attachTag');
+    Route::patch('/products/detach-tag', 'detachTag');
 });
 
 Route::controller(ProductVariationController::class)->middleware('api.token')->group(function () {
