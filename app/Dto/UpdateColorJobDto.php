@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-class UpdateColorJobDto
+readonly class UpdateColorJobDto
 {
     public function __construct(
         public int $id,

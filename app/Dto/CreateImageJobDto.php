@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-class CreateImageJobDto
+readonly class CreateImageJobDto
 {
     public function __construct(
         public string $imageUrl,
