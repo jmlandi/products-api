@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Dto\CreateProductVariationJobDto;
 use App\Dto\UpdateProductVariationAvailabilityJobDto;
+use App\Dto\UpdateProductVariationChildSkuJobDto;
 use App\Jobs\CreateProductVariationJob;
 use App\Jobs\UpdateProductVariationAvailabilityJob;
+use App\Jobs\UpdateProductVariationChildSkuJob;
 use Illuminate\Http\Request;
 
 class ProductVariationController extends Controller
@@ -30,6 +32,16 @@ class ProductVariationController extends Controller
             is_active: $request->input('is_active'),
         );
         UpdateProductVariationAvailabilityJob::dispatch($data);
+        return response()->json(["message" => "job enqeued"], 202);
+    }
+
+    public function updateChildSku(Request $request)
+    {
+        $data = new UpdateProductVariationChildSkuJobDto(
+            id: $request->id,
+            child_sku: $request->child_sku,
+        );
+        UpdateProductVariationChildSkuJob::dispatch($data);
         return response()->json(["message" => "job enqeued"], 202);
     }
 }
