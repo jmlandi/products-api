@@ -1,176 +1,61 @@
-# Products API - Technical Assessment
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-This is a Laravel-based Products API built for technical evaluation. The application uses Docker for containerization and includes a complete development environment.
+## About Laravel
 
-## 🏗️ Architecture
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- **API Server**: Laravel 12 with PHP 8.4
-- **Database**: PostgreSQL 16
-- **Queue System**: AWS SQS integration
-- **Scheduler**: Laravel task scheduling
-- **Containerization**: Docker & Docker Compose
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-## 🚀 Quick Start
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-### Prerequisites
-- Docker & Docker Compose installed
-- Git
+## Learning Laravel
 
-### Setup (One Command)
-```bash
-./docker-setup.sh
-```
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-### Manual Setup
-```bash
-# Clone and navigate
-git clone <repository-url>
-cd products-api
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-# Start services
-docker-compose up -d
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-# Run migrations
-docker-compose exec app php artisan migrate
+## Laravel Sponsors
 
-# Generate app key
-docker-compose exec app php artisan key:generate
-```
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-## 🌐 Access Points
+### Premium Partners
 
-- **API Endpoint**: http://localhost:8000
-- **Database**: localhost:5432
-  - Database: `products_api`
-  - Username: `products_user`
-  - Password: `products_password`
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
-## 📋 API Documentation
+## Contributing
 
-### Available Endpoints
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET    | `/api/products` | List all products |
-| POST   | `/api/products` | Create a new product |
-| GET    | `/api/products/{id}` | Get product details |
-| PUT    | `/api/products/{id}` | Update a product |
-| DELETE | `/api/products/{id}` | Delete a product |
+## Code of Conduct
 
-### Authentication
-Include the API token in your requests:
-```bash
-curl -H "Authorization: Bearer YOUR_API_TOKEN" http://localhost:8000/api/products
-```
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## 🔧 Development Commands
+## Security Vulnerabilities
 
-```bash
-# View all services status
-docker-compose ps
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-# View logs
-docker-compose logs -f [service_name]
+## License
 
-# Run artisan commands
-docker-compose exec app php artisan <command>
-
-# Run tests
-docker-compose exec app php artisan test
-
-# Access database
-docker-compose exec postgres psql -U products_user -d products_api
-
-# Scale queue workers
-docker-compose up -d --scale queue=3
-
-# Rebuild services
-docker-compose build --no-cache
-```
-
-## 🧪 Testing
-
-Run the test suite:
-```bash
-docker-compose exec app php artisan test
-```
-
-## 📊 Key Features Demonstrated
-
-- **RESTful API Design**: Clean, resource-based endpoints
-- **Database Design**: Proper relationships and migrations
-- **Queue Processing**: Background job handling with SQS
-- **Task Scheduling**: Automated maintenance tasks
-- **Docker Containerization**: Production-ready setup
-- **Error Handling**: Proper exception handling and responses
-- **Data Validation**: Request validation and sanitization
-
-## 🔄 Background Services
-
-### Queue Worker
-Processes background jobs for:
-- Product image processing
-- Bulk operations
-- Email notifications
-- Data synchronization
-
-### Scheduler
-Runs automated tasks:
-- Data cleanup
-- Report generation  
-- Cache warming
-- Health checks
-
-## 🛠️ Configuration
-
-### Environment Variables
-Key configuration in `.env`:
-- Database connection settings
-- AWS SQS credentials
-- API authentication tokens
-- Cache and session drivers
-
-### AWS SQS Setup
-For queue functionality, configure:
-```env
-QUEUE_CONNECTION=sqs
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_DEFAULT_REGION=us-east-1
-SQS_QUEUE=your-queue-name
-```
-
-## 🏁 Stopping the Application
-
-```bash
-# Stop all services
-docker-compose down
-
-# Stop and remove volumes (clean slate)
-docker-compose down -v
-```
-
-## 📝 Technical Notes
-
-- Uses Laravel 12 with modern PHP 8.4 features
-- PostgreSQL 16 for robust data storage
-- Supervisor for process management
-- Apache with mod_rewrite enabled
-- Optimized for both development and production
-- Health checks ensure service reliability
-
-## 🎯 Evaluation Criteria
-
-This setup demonstrates:
-- **Code Quality**: Clean, well-structured Laravel code
-- **Architecture**: Proper separation of concerns
-- **DevOps Skills**: Docker containerization and orchestration
-- **Database Design**: Efficient schema and relationships
-- **API Design**: RESTful principles and documentation
-- **Testing**: Comprehensive test coverage
-- **Production Readiness**: Scalable, maintainable setup
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
