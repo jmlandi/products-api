@@ -7,22 +7,22 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductVariationController;
 use App\Http\Controllers\TagController;
 
-Route::controller(BrandController::class)->group(function () {
+Route::controller(BrandController::class)->middleware('api.token')->group(function () {
     Route::post('/brands', 'store');
     Route::post('/brands/update-name', 'updateName');
 });
 
-Route::controller(ColorController::class)->group(function () {
+Route::controller(ColorController::class)->middleware('api.token')->group(function () {
     Route::post('/colors', 'store');
     Route::post('/colors/update-name', 'updateName');
 });
 
-Route::controller(TagController::class)->group(function () {
+Route::controller(TagController::class)->middleware('api.token')->group(function () {
     Route::post('/tags', 'store');
     Route::post('/tags/update-name', 'updateName');
 });
 
-Route::controller(ProductController::class)->group(function () {
+Route::controller(ProductController::class)->middleware('api.token')->group(function () {
     Route::post('/products', 'store');
     Route::post('/products/update-availability', 'updateProductAvailability');
     Route::post('/products/update-brand', 'updateProductsBrand');
@@ -34,7 +34,7 @@ Route::controller(ProductController::class)->group(function () {
     Route::post('/products/detach-tag', 'detachProductsTags');
 });
 
-Route::controller(ProductVariationController::class)->group(function () {
+Route::controller(ProductVariationController::class)->middleware('api.token')->group(function () {
     Route::post('/product-variations/update-stock', 'updateStock');
     Route::post('/product-variations/update-color', 'updatePrice');
     Route::post('/product-variations/update-size', 'updateSize');
