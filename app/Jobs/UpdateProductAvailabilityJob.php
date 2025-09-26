@@ -24,7 +24,10 @@ class UpdateProductAvailabilityJob implements ShouldQueue, ShouldBeUniqueUntilPr
     public function handle(): void
     {
         $product = Product::find($this->payload->id);
-        $product->is_active = $this->payload->is_active;
-        $product->save();
+        if ($product)
+        {
+            $product->is_active = $this->payload->is_active;
+            $product->save();
+        }
     }
 }
