@@ -1,0 +1,932 @@
+type: collection.insomnia.rest/5.0
+name: products-api
+meta:
+  id: wrk_b144315cea5f4f9c90415e1a05327bef
+  created: 1758769785695
+  modified: 1758769785695
+  description: ""
+collection:
+  - name: Brands
+    meta:
+      id: fld_b96ef17767ca4351acdc02014fe3ae31
+      created: 1758769823112
+      modified: 1758769836580
+      sortKey: -1758769823112
+      description: ""
+    children:
+      - url: localhost:8000/api/brands
+        name: /api/brands
+        meta:
+          id: req_f89891ff54794c74a249cc70ff8a636c
+          created: 1758769809442
+          modified: 1758887930178
+          isPrivate: false
+          description: ""
+          sortKey: -1758769829763
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "New Era Unlimited"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+          disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/brands/update-name
+        name: /api/brands/update-name
+        meta:
+          id: req_d346ea9ac6e04de9b621fe10907a627b
+          created: 1758770786619
+          modified: 1758884008578
+          isPrivate: false
+          description: ""
+          sortKey: -1758372941266
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"name": "Adidas"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Tags
+    meta:
+      id: fld_3f861d6e5a5e464396640e976be15be8
+      created: 1758836852786
+      modified: 1758836852786
+      sortKey: -1758769823062
+      description: ""
+    children:
+      - url: localhost:8000/api/tags
+        name: /api/tags
+        meta:
+          id: req_b3b1fbe4231a4833956477c247c025e4
+          created: 1758836852789
+          modified: 1758884904116
+          isPrivate: false
+          description: ""
+          sortKey: -1758769829763
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Chapeus"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/tags/update-name
+        name: /api/tags/update-name
+        meta:
+          id: req_f8ccb37d95744b5c8e43c00310bc70b8
+          created: 1758836852791
+          modified: 1758885071797
+          isPrivate: false
+          description: ""
+          sortKey: -1758372941266
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"name": "Chapéus"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Products
+    meta:
+      id: fld_9e3a6ca380d94c1899d20f726ba90466
+      created: 1758878674572
+      modified: 1758885853562
+      sortKey: -1758885843276
+      description: ""
+    children:
+      - url: localhost:8000/api/products
+        name: /api/products
+        meta:
+          id: req_95b70bfe54464afbbb390061eac2cbff
+          created: 1758878678965
+          modified: 1758885872113
+          isPrivate: false
+          description: ""
+          sortKey: -1758885866892
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"sku": "BONE-NE",
+            	"name": "Boné Aba Reta",
+            	"price": 99.90,
+            	"brand_id": 1,
+            	"description": "Boné aba reta da New Era. Confortável e estiloso",
+            	"is_active": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/products/update-availability
+        name: /api/products/update-availability
+        meta:
+          id: req_fe7f19a511db423c8367323e478cc226
+          created: 1758885866792
+          modified: 1758892250871
+          isPrivate: false
+          description: ""
+          sortKey: -1758885866792
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"is_active": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/products/update-brand
+        name: /api/products/update-brand
+        meta:
+          id: req_831fce98adad43af8012d627f64f96e2
+          created: 1758887894877
+          modified: 1758887984363
+          isPrivate: false
+          description: ""
+          sortKey: -1758885857872
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"brand_id": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/products/update-description
+        name: /api/products/update-description
+        meta:
+          id: req_1feea236b83645da8d0ac91fa75e1671
+          created: 1758887902450
+          modified: 1758888052952
+          isPrivate: false
+          description: ""
+          sortKey: -1758885853412
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"id": 2,
+            	"description": "O boné ideal para seu dia-a-dia com a exclusividade da New Era Unlimited!"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/products/update-name
+        name: /api/products/update-name
+        meta:
+          id: req_a239188d30d346b5b44000181207fabf
+          created: 1758888723011
+          modified: 1758888741446
+          isPrivate: false
+          description: ""
+          sortKey: -1758885851182
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"name": "Boné Aba Reta Preto New Era Unlimited"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/products/update-price
+        name: /api/products/update-price
+        meta:
+          id: req_a647fe832c0b44bf8265cb3f4422bfc5
+          created: 1758889141483
+          modified: 1758889156260
+          isPrivate: false
+          description: ""
+          sortKey: -1758885850067
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"price": 42.42
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/products/update-sku
+        name: /api/products/update-sku
+        meta:
+          id: req_d0c0d2928011480ab0d86fefd32efb00
+          created: 1758889573507
+          modified: 1758893144522
+          isPrivate: false
+          description: ""
+          sortKey: -1758885849509.5
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"sku": "NEU-BONE"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/products/attach-tag
+        name: /api/products/attach-tag
+        meta:
+          id: req_8aafee1202e540aabdd6c10fdff33057
+          created: 1758890480297
+          modified: 1758890520853
+          isPrivate: false
+          description: ""
+          sortKey: -1758885849230.75
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"tag_id": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/products/detach-tag
+        name: /api/products/detach-tag
+        meta:
+          id: req_336da5ea1a5d43d58b0d3c056a7f3cbf
+          created: 1758891351504
+          modified: 1758891354071
+          isPrivate: false
+          description: ""
+          sortKey: -1758885849091.375
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"tag_id": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Colors
+    meta:
+      id: fld_55ebfa9b1aa142bc889c19c444940784
+      created: 1758883531961
+      modified: 1758883531961
+      sortKey: -1758769823012
+      description: ""
+    children:
+      - url: localhost:8000/api/colors
+        name: /api/colors
+        meta:
+          id: req_ae95010cb8124681830a74b23bed4216
+          created: 1758883531962
+          modified: 1758884855630
+          isPrivate: false
+          description: ""
+          sortKey: -1758769829763
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "CINZA"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/colors/update-name
+        name: /api/colors/update-name
+        meta:
+          id: req_9c31ff38115a4841ae8266869f376734
+          created: 1758883531963
+          modified: 1758884027161
+          isPrivate: false
+          description: ""
+          sortKey: -1758372941266
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"name": "Cinza"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Images
+    meta:
+      id: fld_eac7cff58dd84e8caaec344f75d6fc9f
+      created: 1758884114741
+      modified: 1758884114741
+      sortKey: -1758769822962
+      description: ""
+    children:
+      - url: localhost:8000/api/images
+        name: /api/images
+        meta:
+          id: req_ba6bfed50b284bdf82fae7cdbce68c87
+          created: 1758884114742
+          modified: 1758884577016
+          isPrivate: false
+          description: ""
+          sortKey: -1758769829763
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"image_url": "https://cdnsmarterapp.azureedge.net/public/1/image/padrao/neperbon001.webp",
+            	"alt_text": "Foto do Boné New Era Aba Reta Preto"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/images/update-alt-text
+        name: /api/images/update-alt-text
+        meta:
+          id: req_298e479a132647d88a23e39d91597bff
+          created: 1758884114743
+          modified: 1758884571592
+          isPrivate: false
+          description: ""
+          sortKey: -1758372941266
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"alt_text": "Foto do boné preto e aba reta da New Era"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Product Variations
+    meta:
+      id: fld_05cb9850577440fc92f2ae1525248073
+      created: 1758885843176
+      modified: 1758885843176
+      sortKey: -1758885843176
+      description: ""
+    children:
+      - url: localhost:8000/api/product-variations
+        name: /api/product-variations
+        meta:
+          id: req_0556cc7c946d4ec6a7fbbd1874f01bae
+          created: 1758883280494
+          modified: 1758885848994
+          isPrivate: false
+          description: ""
+          sortKey: -1758885848952
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"child_sku": "BONE-NE-PTO-UN",
+            	"color_id": 1,	
+            	"product_id": 2,
+            	"size": "un",
+            	"is_active": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/product-variations/update-availability
+        name: /api/product-variations/update-availability
+        meta:
+          id: req_c1f61029711248169974a08c0f519d66
+          created: 1758892319325
+          modified: 1758892594023
+          isPrivate: false
+          description: ""
+          sortKey: -1758885848852
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"is_active": true
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/product-variations/update-child-sku
+        name: /api/product-variations/update-child-sku
+        meta:
+          id: req_7a83cd2735e84fdf962e53f1cb438a58
+          created: 1758893078734
+          modified: 1758893242904
+          isPrivate: false
+          description: ""
+          sortKey: -1758827839307.5
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"child_sku": "NEU-BONE-PTO-UN"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/product-variations/update-color
+        name: /api/product-variations/update-color
+        meta:
+          id: req_043051fe26d647ff9e4f1639d41063cd
+          created: 1758893754831
+          modified: 1758893768506
+          isPrivate: false
+          description: ""
+          sortKey: -1758798834535.25
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"color_id": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/product-variations/attach-image
+        name: /api/product-variations/attach-image
+        meta:
+          id: req_f471f09565d448208682e2a113e1431c
+          created: 1758894966444
+          modified: 1758895194310
+          isPrivate: false
+          description: ""
+          sortKey: -1758784332149.125
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"image_id": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/product-variations/detach-image
+        name: /api/product-variations/detach-image
+        meta:
+          id: req_2c2287d2633747af92a83ff21d6b4f8e
+          created: 1758894996287
+          modified: 1758895280173
+          isPrivate: false
+          description: ""
+          sortKey: -1758777080956.0625
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"image_id": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/product-variations/update-size
+        name: /api/product-variations/update-size
+        meta:
+          id: req_959dd710a7ef4e81976318f1b039adfa
+          created: 1758895767787
+          modified: 1758895901188
+          isPrivate: false
+          description: ""
+          sortKey: -1758773455359.5312
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"size": "UN"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/product-variations/update-stock-total
+        name: /api/product-variations/update-stock-total
+        meta:
+          id: req_fabb4303f16c43e0b76c87a5f3b7cc0c
+          created: 1758896911275
+          modified: 1758897700089
+          isPrivate: false
+          description: ""
+          sortKey: -1758771642561.2656
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"movimentation": -1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/api/product-variations/update-stock-reserved
+        name: /api/product-variations/update-stock-reserved
+        meta:
+          id: req_4af9d3bd28b84e4798c1f5493ec863f8
+          created: 1758897669123
+          modified: 1758897688465
+          isPrivate: false
+          description: ""
+          sortKey: -1758770736162.1328
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"movimentation": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.0
+        authentication:
+          type: bearer
+          token: "your-api-token-from-dot-env"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_144edab9f39ef62380eb8f60340bc1ce0c6adc4c
+    created: 1758769785715
+    modified: 1758769785715
+environments:
+  name: Base Environment
+  meta:
+    id: env_144edab9f39ef62380eb8f60340bc1ce0c6adc4c
+    created: 1758769785700
+    modified: 1758769785700
+    isPrivate: false
