@@ -6,10 +6,11 @@ use App\Dto\CreateProductJobDTO;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Tag;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 
-class CreateProductjob implements ShouldQueue
+class CreateProductjob implements ShouldQueue, ShouldBeUnique
 {
     use Queueable;
 
@@ -18,6 +19,11 @@ class CreateProductjob implements ShouldQueue
      */
     public function __construct(public CreateProductJobDTO $payload) { }
 
+    public function uniqueId()
+    {
+        return $this->payload->sku;
+    }
+
     /**
      * Execute the job.
      */
@@ -25,17 +31,18 @@ class CreateProductjob implements ShouldQueue
     {
         $product = new Product();
 
-        $brand = Brand::firstOrCreate(['name' => strtolower(trim($this->payload->brand))]);
+        $brand = Brand::firstOrCreate(['name' => trim($this->payload->brand)]);
         $product->brand_id = $brand->id;
         
-        foreach ($this->payload->tags ?? [] as $tagName) {
-            $tag = Tag::firstOrCreate(['name' => strtolower(trim($tagName))]);
+        foreach ($this->payload->tags ?? [] as $tagName)
+        {
+            $tag = Tag::firstOrCreate(['name' => trim($tagName)]);
             $product->tags()->attach($tag->id);
         }
         
-        $product->sku = strtolower(trim($this->payload->sku));
-        $product->name = strtolower(trim($this->payload->name));
-        $product->description = strtolower(trim($this->payload->description));
+        $product->sku = trim($this->payload->sku);
+        $product->name = trim($this->payload->name);
+        $product->description = trim($this->payload->description);
         $product->price = $this->payload->price;
         $product->is_active = $this->payload->is_active ?? true;
         

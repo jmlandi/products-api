@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-readonly class CreateBrandJobDto
+class CreateBrandJobDto
 {
     public function __construct(
       public string $name

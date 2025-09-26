@@ -16,7 +16,7 @@ class BrandController extends Controller
     {
         $data = new CreateBrandJobDto(name: $request->input('name'));
         CreateBrandJob::dispatch($data);
-        return response()->json(['message' => 'Brand creation job dispatched'], 202);
+        return response()->json(['message' => 'job dispatched'], 202);
     }
 
     public function updateName(Request $request) {
@@ -25,6 +25,6 @@ class BrandController extends Controller
             name: $request->input('name')
         );
         UpdateBrandJob::dispatch($data);
-        return response()->json(['message' => 'Brand update job dispatched'], 202);
+        return response()->json(['message' => 'job dispatched'], 202);
     }
 }
