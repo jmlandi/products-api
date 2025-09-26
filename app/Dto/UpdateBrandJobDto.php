@@ -2,7 +2,6 @@
 
 namespace App\Dto;
 
-
 class UpdateBrandJobDto
 {
     public function __construct(

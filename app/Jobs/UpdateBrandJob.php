@@ -16,6 +16,12 @@ class UpdateBrandJob implements ShouldQueue
      */
     public function __construct(public UpdateBrandJobDto $payload) { }
 
+    public function uniqueId()
+    {
+        return $this->payload->id;
+    }
+
+
     /**
      * Execute the job.
      */

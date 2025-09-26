@@ -6,8 +6,9 @@ use App\Dto\CreateTagJobDTO;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use App\Models\Tag;
+use Illuminate\Contracts\Broadcasting\ShouldBeUnique;
 
-class CreateTagJob implements ShouldQueue
+class CreateTagJob implements ShouldQueue, ShouldBeUnique
 {
     use Queueable;
 
@@ -16,13 +17,18 @@ class CreateTagJob implements ShouldQueue
      */
     public function __construct(public CreateTagJobDTO $payload) { }
 
+    public function uniqueId()
+    {
+        return $this->payload->name;
+    }
+
     /**
      * Execute the job.
      */
     public function handle(): void
     {
         $tag = Tag::create([
-            'name' => $this->payload['name'],
+            'name' => $this->payload->name,
         ]);
         $tag->save();   
     }

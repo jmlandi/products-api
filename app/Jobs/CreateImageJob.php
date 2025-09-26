@@ -6,17 +6,20 @@ use App\Models\Image;
 use App\Dto\CreateImageJobDto;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class CreateImageJob implements ShouldQueue
+class CreateImageJob implements ShouldQueue, ShouldBeUnique
 {
     use Queueable;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(public CreateImageJobDto $payload)
+    public function __construct(public CreateImageJobDto $payload) { }
+
+    public function uniqueId()
     {
-        //
+        return $this->payload->imageUrl;
     }
 
     /**

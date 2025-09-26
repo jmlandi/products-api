@@ -2,7 +2,6 @@
 
 namespace App\Dto;
 
-
 class UpdateColorJobDto
 {
     public function __construct(
