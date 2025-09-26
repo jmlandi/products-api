@@ -6,10 +6,12 @@ use App\Dto\CreateProductJobDto;
 use App\Dto\UpdateProductAvailabilityJobDto;
 use App\Dto\UpdateProductBrandJobDto;
 use App\Dto\UpdateProductDescriptionJobDto;
+use App\Dto\UpdateProductNameJobDto;
 use App\Jobs\CreateProductjob;
 use App\Jobs\UpdateProductAvailabilityJob;
 use App\Jobs\UpdateProductBrandJob;
 use App\Jobs\UpdateProductDescriptionJob;
+use App\Jobs\UpdateProductNameJob;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -36,14 +38,13 @@ class ProductController extends Controller
         );
         UpdateProductAvailabilityJob::dispatch($data);
         return response()->json(["message" => "job enqeued"], 202);
-
     }
 
     public function updateBrand(Request $request)
     {
         $data = new UpdateProductBrandJobDto(
-            id: $request->id,
-            brand_id: $request->brand_id,
+            id: $request->input('id'),
+            brand_id: $request->input('brand_id'),
         );
         UpdateProductBrandJob::dispatch($data);
         return response()->json(["message" => "job enqeued"], 202);
@@ -52,11 +53,20 @@ class ProductController extends Controller
     public function updateDescription(Request $request)
     {
         $data = new UpdateProductDescriptionJobDto(
-            id: $request->id,
-            description: $request->description,
+            id: $request->input('id'),
+            description: $request->input('description'),
         );
         UpdateProductDescriptionJob::dispatch($data);
         return response()->json(["message" => "job enqeued"], 202);
+    }
 
+    public function updateName(Request $request)
+    {
+        $data = new UpdateProductNameJobDto(
+            id: $request->input('id'),
+            name: $request->input('name'),
+        );
+        UpdateProductNameJob::dispatch($data);
+        return response()->json(["message" => "job enqeued"], 202);
     }
 }
