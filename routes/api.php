@@ -44,7 +44,8 @@ Route::controller(ProductVariationController::class)->middleware('api.token')->g
     Route::post('/product-variations', 'store');
     Route::patch('/product-variations/update-availability', 'updateAvailability');
     Route::patch('/product-variations/update-child-sku', 'updateChildSku');
-    Route::patch('/product-variations/update-stock', 'updateStock');
+    Route::patch('/product-variations/update-stock-total', 'updateStockTotal');
+    Route::patch('/product-variations/update-stock-reserved', 'updateStockReserved');
     Route::patch('/product-variations/update-color', 'updateColor');
     Route::patch('/product-variations/update-size', 'updateSize');
     Route::patch('/product-variations/attach-image', 'attachImage');

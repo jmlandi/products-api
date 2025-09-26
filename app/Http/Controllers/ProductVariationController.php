@@ -9,6 +9,7 @@ use App\Dto\UpdateProductVariationAvailabilityJobDto;
 use App\Dto\UpdateProductVariationChildSkuJobDto;
 use App\Dto\UpdateProductVariationColorJobDto;
 use App\Dto\UpdateProductVariationSizeJobDto;
+use App\Dto\UpdateProductVariationStockJobDto;
 use App\Jobs\AttachProductVariationImagesJob;
 use App\Jobs\CreateProductVariationJob;
 use App\Jobs\DetachProductVariationImagesJob;
@@ -16,6 +17,9 @@ use App\Jobs\UpdateProductVariationAvailabilityJob;
 use App\Jobs\UpdateProductVariationChildSkuJob;
 use App\Jobs\UpdateProductVariationColorJob;
 use App\Jobs\UpdateProductVariationSizeJob;
+use App\Jobs\UpdateProductVariationStockJob;
+use App\Jobs\UpdateProductVariationStockReservedJob;
+use App\Jobs\UpdateProductVariationStockTotalJob;
 use Illuminate\Http\Request;
 
 class ProductVariationController extends Controller
@@ -90,6 +94,26 @@ class ProductVariationController extends Controller
             size: $request->size,
         );
         UpdateProductVariationSizeJob::dispatch($data);
+        return response()->json(["message" => "job enqeued"], 202);
+    }
+
+    public function updateStockTotal(Request $request)
+    {
+        $data = new UpdateProductVariationStockJobDto(
+            id: $request->id,
+            movimentation: $request->movimentation,
+        );
+        UpdateProductVariationStockTotalJob::dispatch($data);
+        return response()->json(["message" => "job enqeued"], 202);
+    }
+
+    public function updateStockReserved(Request $request)
+    {
+        $data = new UpdateProductVariationStockJobDto(
+            id: $request->id,
+            movimentation: $request->movimentation,
+        );
+        UpdateProductVariationStockReservedJob::dispatch($data);
         return response()->json(["message" => "job enqeued"], 202);
     }
 
