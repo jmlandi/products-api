@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductVariation extends Model
 {
+    protected $fillable = [
+        'child_sku',
+        'size',
+        'is_active',
+    ];
+
+
     function product()
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');

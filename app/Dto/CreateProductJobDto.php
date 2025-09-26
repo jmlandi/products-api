@@ -8,11 +8,8 @@ readonly class CreateProductJobDto
         public string $sku,
         public string $name,
         public float $price,
+        public int $brand_id,
         public ?string $description,
-        public ?string $brand,
-        public ?bool $is_active,
-        public ?array $tags,
-        public ?array $colors,
-        public ?array $sizes
+        public ?bool $is_active
     ) {}
 }

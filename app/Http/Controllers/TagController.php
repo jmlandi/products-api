@@ -15,7 +15,7 @@ class TagController extends Controller
     {
         $data = new CreateTagJobDto(name: $request->input('name'));
         CreateTagJob::dispatch($data);
-        return response()->json(['message' => 'Brand creation job dispatched'], 202);
+        return response()->json(['message' => 'job enqeued'], 202);
     }
 
     public function updateName(Request $request) {
@@ -24,6 +24,6 @@ class TagController extends Controller
             name: $request->input('name')
         );
         UpdateTagJob::dispatch($data);
-        return response()->json(['message' => 'Brand update job dispatched'], 202);
+        return response()->json(['message' => 'job enqeued'], 202);
     }
 }

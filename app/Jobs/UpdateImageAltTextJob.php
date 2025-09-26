@@ -30,11 +30,11 @@ class UpdateImageAltTextJob implements ShouldQueue, ShouldBeUnique
 
         $data = new UpdateImageAltTextJobDto(
             id: $this->payload->id,
-            altText: $this->payload->altText
+            alt_text: $this->payload->alt_text
         );
         $image = Image::find($data->id);
         if ($image) {
-            $image->altText = $data->altText;
+            $image->alt_text = $data->alt_text;
             $image->save();
         }
     }
