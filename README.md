@@ -1,4 +1,7 @@
-# Products API - HUB Laravel para Processamento de Jobs via Amazon SQS
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/834cd2a0-f4ac-441c-bd07-ca558da22073" />
+
+# Products API
+HUB Laravel para Processamento de Jobs via Amazon SQS. Teste técnico para [irroba](https://www.irroba.com.br)
 
 ## 📋 Descrição do Projeto
 
@@ -13,7 +16,6 @@ Esta aplicação Laravel funciona como um HUB para receber e processar jobs de a
 - ✅ **Sistema de filas (Queues)** e agendamento de tarefas
 - ✅ **Mecanismo de logs** para monitoramento e falhas
 - ✅ **Segurança** contra ataques comuns (SQL Injection, XSS, CSRF)
-- ✅ **Testes automatizados** para garantir qualidade
 - ✅ **Documentação da API** com exemplos de uso
 
 ### Critérios de Avaliação Atendidos:
