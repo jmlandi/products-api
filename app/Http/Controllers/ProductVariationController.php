@@ -8,12 +8,14 @@ use App\Dto\DetachProductVariationImagesJobDto;
 use App\Dto\UpdateProductVariationAvailabilityJobDto;
 use App\Dto\UpdateProductVariationChildSkuJobDto;
 use App\Dto\UpdateProductVariationColorJobDto;
+use App\Dto\UpdateProductVariationSizeJobDto;
 use App\Jobs\AttachProductVariationImagesJob;
 use App\Jobs\CreateProductVariationJob;
 use App\Jobs\DetachProductVariationImagesJob;
 use App\Jobs\UpdateProductVariationAvailabilityJob;
 use App\Jobs\UpdateProductVariationChildSkuJob;
 use App\Jobs\UpdateProductVariationColorJob;
+use App\Jobs\UpdateProductVariationSizeJob;
 use Illuminate\Http\Request;
 
 class ProductVariationController extends Controller
@@ -78,6 +80,16 @@ class ProductVariationController extends Controller
             image_id: $request->image_id,
         );
         DetachProductVariationImagesJob::dispatch($data);
+        return response()->json(["message" => "job enqeued"], 202);
+    }
+
+    public function updateSize(Request $request)
+    {
+        $data = new UpdateProductVariationSizeJobDto(
+            id: $request->id,
+            size: $request->size,
+        );
+        UpdateProductVariationSizeJob::dispatch($data);
         return response()->json(["message" => "job enqeued"], 202);
     }
 
