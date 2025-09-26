@@ -5,14 +5,10 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schedule;
 use Illuminate\Support\Facades\DB;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
-
-// Retry failed jobs in SQS queue
+// Retry all failed jobs every 5 minutes
 Schedule::command('queue:retry all')->everyFiveMinutes()->withoutOverlapping()->onOneServer();
 
-// Delete tags not attached to any product
+// Delete tags not attached to any product (runs daily at midnight)
 Schedule::call(function () {
     DB::table('tags')
         ->whereNotIn('id', function ($query) {
@@ -21,7 +17,7 @@ Schedule::call(function () {
         ->delete();
 })->dailyAt('00:00')->name('delete-unused-tags');
 
-// Delete images not attached to any product variation
+// Delete images not attached to any product variation (runs daily at midnight)
 Schedule::call(function () {
     DB::table('images')
         ->whereNotIn('id', function ($query) {
@@ -30,7 +26,7 @@ Schedule::call(function () {
         ->delete();
 })->dailyAt('00:00')->name('delete-unused-images');
 
-// Delete colors not attached to any product variation
+// Delete colors not attached to any product variation (runs daily at midnight)
 Schedule::call(function () {
     DB::table('colors')
         ->whereNotIn('id', function ($query) {
