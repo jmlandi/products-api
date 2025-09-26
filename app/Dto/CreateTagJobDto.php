@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-class CreateTagJobDto
+readonly class CreateTagJobDto
 {
     public function __construct(
         public string $name

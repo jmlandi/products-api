@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-class UpdateBrandJobDto
+readonly class UpdateBrandJobDto
 {
     public function __construct(
         public int $id,

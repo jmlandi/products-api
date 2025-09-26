@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-class CreateProductJobDto
+readonly class CreateProductJobDto
 {
     public function __construct(
         public string $sku,

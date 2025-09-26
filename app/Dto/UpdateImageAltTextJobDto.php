@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-class UpdateImageAltTextJobDto
+readonly class UpdateImageAltTextJobDto
 {
     public function __construct(
       public int $id,
